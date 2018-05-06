@@ -10,6 +10,12 @@ import { SendEmailTokenComponent } from './components/send-email-token.component
 import { ConsolaComponent } from './components/ver-consolas.component';
 import { AddConsolaComponent } from './components/agregar-consola.component';
 
+import { VideojuegosGetComponent } from './components/get-videojuegos.component';
+import { VideojuegoCreateComponent } from './components/create-videojuego.component';
+import { AccesoriosGetComponent } from './components/get-accesorios.component';
+import { AccesorioCreateComponent } from './components/create-accesorio.component';
+import { CarritoGetComponent } from './components/get-carrito.component';
+
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
 	{path: 'inicio', component: HomeComponent},
@@ -19,6 +25,11 @@ const appRoutes: Routes = [
 	{path: 'enviar-token', component: SendEmailTokenComponent},
 	{path: 'ver-consolas', component: ConsolaComponent},
 	{path: 'agregar-consola', component: AddConsolaComponent},
+	{path: 'ver-videojuegos', component: VideojuegosGetComponent},
+	{path: 'agregar-videojuego', component: VideojuegoCreateComponent},
+	{path: 'ver-accesorios', component: AccesoriosGetComponent},
+	{path: 'agregar-accesorio', component: AccesorioCreateComponent},
+	{path: 'ver-carrito', component: CarritoGetComponent},	
 	{path: '**', component: HomeComponent}
 ];
 

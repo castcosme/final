@@ -47,6 +47,7 @@
         <td class="text-center" style="padding-top: 35px;">
           <a *ngIf="identity.role=='ROLE_ADMIN'" [routerLink]="['/editar-consola',cons.id]" class="btn btn-sm btn-success">Editar</a>
           <button *ngIf="identity.role=='ROLE_ADMIN'" (click)="eliminarConsola(cons.id)" class="btn btn-sm btn-danger">Borrar</button>
+          <button (click)="checkItemCart(cons.nombre, identity._id, cons)" class="btn btn-sm btn-warning">Add to Cart</button>
         </td>
       </tr>
     </tbody>

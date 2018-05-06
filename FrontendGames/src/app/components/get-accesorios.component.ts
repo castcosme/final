@@ -1,84 +1,77 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { GLOBALMYSQL } from '../services/globalmysql';
+import { GLOBALPOSTGRES } from '../services/globalpostgres';
 import { UserService } from '../services/user.service';
-import { ConsolaService } from '../services/consola.service';
+import { AccesorioService } from '../services/accesorio.service';
 import { CartService } from '../services/cart.service';
-import { Consola } from '../models/consola';
+import { Accesorio } from '../models/accesorio';
 
 @Component({
-  selector: 'ver-consolas',
-  templateUrl: '../views/ver-consolas.html',
-  providers: [UserService, ConsolaService, CartService]
+  selector: 'ver-accesorios', 
+  templateUrl: '../views/ver-accesorios.html',
+  providers: [UserService, AccesorioService, CartService]
 })
 
-export class ConsolaComponent implements OnInit{
+export class AccesoriosGetComponent implements OnInit{
 	public titulo: string;
-  public consola: Consola[]=[];
+	public accesorio: Accesorio[] = [];
 	public identity;
 	public token;
-	public url: string;
 	public alertMessage;
+	public url: string;
 
 	constructor(
-		private _route: ActivatedRoute,
+		private _route: ActivatedRoute,      
 		private _router: Router,
 		private _userService: UserService,
-		private _consolaService: ConsolaService,
+		private _accesorioService: AccesorioService,
 		private _cartService: CartService
 	){
-		this.titulo = 'Consolas disponibles';
+		this.titulo = 'Accesorios disponibles';		
 		this.identity = this._userService.getIdentity();
-  		this.token = this._userService.getToken();
-  		this.url = GLOBALMYSQL.url;
+  		this.token = this._userService.getToken();  		
+  		this.url = GLOBALPOSTGRES.url;
 	}
 
 	ngOnInit(){
-		console.log('ver-consolas.component cargado');
-    this.consola=[];
-		this.conseguirConsolas();
+		console.log('get-accesorios.component cargado');
+		this.accesorio = [];
+		this.conseguirAccesorios();
 	}
 
-	conseguirConsolas(){
-
-			if(this.identity.role == 'ROLE_ADMIN'){
-				this._consolaService.getConsolas(this.token).subscribe(
-					response => {
-
-						//console.log(response);
-	 					for (var i in response) {
-	 						//console.log(response[i]);
-							this.consola.push(response[i]);
-	 					}
-
-					},
-					error => {
-						var errorMessage = <any>error;
-
-			  			if(errorMessage != null){
-			  				var body = JSON.parse(error._body);
-                
-			  				this.alertMessage = body.message;
-
-			  				console.log(error);
-			  			}
+	conseguirAccesorios(){							
+		this._accesorioService.getAccesorios(this.token).subscribe(
+			response => {											
+				
+				//console.log(response);
+					for (var i in response) {
+						//console.log(response[i]);
+						this.accesorio.push(response[i]);
 					}
-				);
-			}else{
-			  	this.alertMessage = 'Token no valido';
+				
+			},
+			error => {
+				var errorMessage = <any>error;
+
+	  			if(errorMessage != null){
+	  				var body = JSON.parse(error._body);
+	  				this.alertMessage = body.message;
+	  				
+	  				console.log(error);
+	  			}
 			}
+		);	
+	}	
 
-	}
-
-	eliminarConsola(idCons){
-		this._consolaService.deleteConsola(this.token, idCons).subscribe(
-			response => {
+	eliminarAccesorio(idAcc){
+		this._accesorioService.deleteAccesorio(this.token, idAcc).subscribe(
+			response => {					
 				if(!response){
 					this._router.navigate(['/']);
-				}else{
-					this.consola = [];
-					this.conseguirConsolas();
+				}else{											
+					this.accesorio = [];
+					this.conseguirAccesorios();
 				}
 			},
 			error => {
@@ -87,7 +80,7 @@ export class ConsolaComponent implements OnInit{
 	  			if(errorMessage != null){
 	  				var body = JSON.parse(error._body);
 	  				this.alertMessage = body.message;
-
+	  				
 	  				console.log(error);
 	  			}
 			}
@@ -98,7 +91,7 @@ export class ConsolaComponent implements OnInit{
 		let body = {		      
 	      nombre: nombre,
 	      idUser: idUs
-	    };
+	    }; 
 
 		this._cartService.buscaItem(this.token, body).subscribe(
 			response => {					
@@ -148,7 +141,7 @@ export class ConsolaComponent implements OnInit{
 	addItemtoCart(objItem){
 		let body = {
 			nombre: objItem.nombre,
-			categoria: 'consolas',
+			categoria: 'accesorios',
 			descripcion: objItem.descripcion,
 			cantidad: 1,
 			id: objItem.id,

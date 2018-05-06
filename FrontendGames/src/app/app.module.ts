@@ -16,6 +16,11 @@ import { SendEmailTokenComponent } from './components/send-email-token.component
 import { ConsolaComponent } from './components/ver-consolas.component';
 import { AddConsolaComponent } from './components/agregar-consola.component'; 
 
+import { VideojuegosGetComponent } from './components/get-videojuegos.component';
+import { VideojuegoCreateComponent } from './components/create-videojuego.component';
+import { AccesoriosGetComponent } from './components/get-accesorios.component';
+import { AccesorioCreateComponent } from './components/create-accesorio.component';
+import { CarritoGetComponent } from './components/get-carrito.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { AddConsolaComponent } from './components/agregar-consola.component';
     UsuarioEditComponent,
     SendEmailTokenComponent,
     ConsolaComponent,
-    AddConsolaComponent
+    AddConsolaComponent,
+    VideojuegosGetComponent,
+    VideojuegoCreateComponent,
+    AccesoriosGetComponent,
+    AccesorioCreateComponent,
+    CarritoGetComponent
   ],
   imports: [
     BrowserModule,

@@ -64,4 +64,15 @@ export class ConsolaService{
 
     return this._http.put(this.url+'update-consola'+id, params, {headers: headers}).map(res => res.json());
   }
+
+  createVenta(token, venta_data, idUs, nomb, tot){
+		let params = JSON.stringify(venta_data);
+
+		let headers = new Headers({
+				'Content-Type':'application/json',
+				'Authorization': token
+			});
+
+		return this._http.post(this.url+'registrar-venta/'+idUs+'/'+nomb+'/'+tot, params, {headers: headers}).map(res => res.json());	
+	}
 }
