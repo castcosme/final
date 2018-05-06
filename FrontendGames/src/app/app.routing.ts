@@ -9,13 +9,15 @@ import { UsuarioEditComponent } from './components/editar-user.component';
 import { SendEmailTokenComponent } from './components/send-email-token.component';
 import { ConsolaComponent } from './components/ver-consolas.component';
 import { AddConsolaComponent } from './components/agregar-consola.component';
-
 import { VideojuegosGetComponent } from './components/get-videojuegos.component';
 import { VideojuegoCreateComponent } from './components/create-videojuego.component';
 import { AccesoriosGetComponent } from './components/get-accesorios.component';
 import { AccesorioCreateComponent } from './components/create-accesorio.component';
 import { CarritoGetComponent } from './components/get-carrito.component';
 import { VentasComponent } from './components/get-ventas.component';
+import { ConsolaEditComponent } from './components/editar-consola.component';
+import { AccesorioEditComponent } from './components/editar-accesorio.component';
+import { VideojuegoEditComponent } from './components/editar-videojuego.component';
 
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
@@ -30,8 +32,11 @@ const appRoutes: Routes = [
 	{path: 'agregar-videojuego', component: VideojuegoCreateComponent},
 	{path: 'ver-accesorios', component: AccesoriosGetComponent},
 	{path: 'agregar-accesorio', component: AccesorioCreateComponent},
-	{path: 'ver-carrito', component: CarritoGetComponent},	
-	{path: 'ver-ventas', component: VentasComponent},	
+	{path: 'ver-carrito', component: CarritoGetComponent},
+	{path: 'ver-ventas', component: VentasComponent},
+  {path: 'editar-consola/:idConsola', component: ConsolaEditComponent},
+  {path: 'editar-accesorio/:idAccesorio', component: AccesorioEditComponent},
+  {path: 'editar-videojuego/:idVideojuego', component: VideojuegoEditComponent},		
 	{path: '**', component: HomeComponent}
 ];
 

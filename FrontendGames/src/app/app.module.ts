@@ -14,14 +14,16 @@ import { UsuariosGetComponent } from './components/get-usuarios-registrados.comp
 import { UsuarioEditComponent } from './components/editar-user.component';
 import { SendEmailTokenComponent } from './components/send-email-token.component';
 import { ConsolaComponent } from './components/ver-consolas.component';
-import { AddConsolaComponent } from './components/agregar-consola.component'; 
-
+import { AddConsolaComponent } from './components/agregar-consola.component';
 import { VideojuegosGetComponent } from './components/get-videojuegos.component';
 import { VideojuegoCreateComponent } from './components/create-videojuego.component';
 import { AccesoriosGetComponent } from './components/get-accesorios.component';
 import { AccesorioCreateComponent } from './components/create-accesorio.component';
 import { CarritoGetComponent } from './components/get-carrito.component';
 import { VentasComponent } from './components/get-ventas.component';
+import { ConsolaEditComponent } from './components/editar-consola.component';
+import { AccesorioEditComponent } from './components/editar-accesorio.component';
+import { VideojuegoEditComponent } from './components/editar-videojuego.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { VentasComponent } from './components/get-ventas.component';
     AccesoriosGetComponent,
     AccesorioCreateComponent,
     CarritoGetComponent,
-    VentasComponent
+    VentasComponent,
+    ConsolaEditComponent,
+    AccesorioEditComponent,
+    VideojuegoEditComponent
   ],
   imports: [
     BrowserModule,
