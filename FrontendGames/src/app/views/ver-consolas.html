@@ -35,7 +35,7 @@
         <th class="text-center" scope="col">Opciones</th>
       </tr>
     </thead>
-    <tbody *ngFor="let cons of mf.data">
+    <tbody *ngFor="let cons of mf.data|filter:term">
       <tr>
         <th class="text-center" scope="row" style="padding-top: 35px;">{{cons.nombre}}</th>
         <td class="text-center" style="padding-top: 35px;">{{cons.descripcion}}</td>

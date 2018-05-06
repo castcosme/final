@@ -42,7 +42,7 @@ export class ConsolaComponent implements OnInit{
 
 	conseguirConsolas(){
 
-			if(this.identity.role == 'ROLE_ADMIN'){
+			
 				this._consolaService.getConsolas(this.token).subscribe(
 					response => {
 
@@ -65,9 +65,7 @@ export class ConsolaComponent implements OnInit{
 			  			}
 					}
 				);
-			}else{
-			  	this.alertMessage = 'Token no valido';
-			}
+			
 
 	}
 

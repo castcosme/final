@@ -21,6 +21,7 @@ import { VideojuegoCreateComponent } from './components/create-videojuego.compon
 import { AccesoriosGetComponent } from './components/get-accesorios.component';
 import { AccesorioCreateComponent } from './components/create-accesorio.component';
 import { CarritoGetComponent } from './components/get-carrito.component';
+import { VentasComponent } from './components/get-ventas.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CarritoGetComponent } from './components/get-carrito.component';
     VideojuegoCreateComponent,
     AccesoriosGetComponent,
     AccesorioCreateComponent,
-    CarritoGetComponent
+    CarritoGetComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,

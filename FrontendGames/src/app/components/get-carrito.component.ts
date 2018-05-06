@@ -195,16 +195,16 @@ export class CarritoGetComponent implements OnInit{
 
 		}
 		
-		/*if(mysqlAux == 1){
+		if(mysqlAux == 1){
 			this._consolaService.createVenta(this.token, this.consola, this.identity._id, this.identity.nombre, this.total).subscribe(
 				response => {
 					console.log(response);
 					//eliminamos los items del carrito
-					/*for (var i in objItems) {
+					for (var i in objItems) {
 						if(objItems[i].categoria == 'consolas'){
 							this.eliminarItem(objItems[i]._id);
 						}
-					}*
+					}
 				},
 				error => {
 					var errorMessage = <any>error;
@@ -215,7 +215,7 @@ export class CarritoGetComponent implements OnInit{
 		  			}
 				}
 			);
-		}*/
+		}
 
 		if(postAux == 1){
 			this._videojuegoService.createVenta(this.token, this.videojuego, this.identity._id, this.identity.nombre, this.total).subscribe(

@@ -75,4 +75,25 @@ export class ConsolaService{
 
 		return this._http.post(this.url+'registrar-venta/'+idUs+'/'+nomb+'/'+tot, params, {headers: headers}).map(res => res.json());	
 	}
+
+
+	getVentas(token){
+		let headers = new Headers({
+				'Content-Type':'application/json',
+				'Authorization': token
+			});
+
+    	let options = new RequestOptions({ headers: headers });
+		return this._http.get(this.url+'all-ventas/', options).map(res => res.json());	
+	}
+
+	eliminarVenta(token, id){
+		let headers = new Headers({
+				'Content-Type':'application/json',
+				'Authorization': token
+			});
+
+    	let options = new RequestOptions({ headers: headers });
+		return this._http.delete(this.url+'eliminar-venta/'+id, options).map(res => res.json());
+	}
 }

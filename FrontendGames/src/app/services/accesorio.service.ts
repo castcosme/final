@@ -66,4 +66,24 @@ export class AccesorioService{
 
 		return this._http.put(this.url+'update-accesorio/'+id, params, {headers: headers}).map(res => res.json());	
 	}
+
+	getVentas(token){
+		let headers = new Headers({
+				'Content-Type':'application/json',
+				'Authorization': token
+			});
+
+    	let options = new RequestOptions({ headers: headers });
+		return this._http.get(this.url+'all-ventas/', options).map(res => res.json());	
+	}
+
+	eliminarVenta(token, id){
+		let headers = new Headers({
+				'Content-Type':'application/json',
+				'Authorization': token
+			});
+
+    	let options = new RequestOptions({ headers: headers });
+		return this._http.delete(this.url+'eliminar-venta/'+id, options).map(res => res.json());
+	}
 }

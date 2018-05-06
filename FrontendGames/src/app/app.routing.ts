@@ -15,6 +15,7 @@ import { VideojuegoCreateComponent } from './components/create-videojuego.compon
 import { AccesoriosGetComponent } from './components/get-accesorios.component';
 import { AccesorioCreateComponent } from './components/create-accesorio.component';
 import { CarritoGetComponent } from './components/get-carrito.component';
+import { VentasComponent } from './components/get-ventas.component';
 
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
 	{path: 'ver-accesorios', component: AccesoriosGetComponent},
 	{path: 'agregar-accesorio', component: AccesorioCreateComponent},
 	{path: 'ver-carrito', component: CarritoGetComponent},	
+	{path: 'ver-ventas', component: VentasComponent},	
 	{path: '**', component: HomeComponent}
 ];
 
